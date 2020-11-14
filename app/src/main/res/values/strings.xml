@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">AndroidProfiler</string>
+    <string name="title_activity_app">AppActivity</string>
+    <string name="cpu">Процессор</string>
 </resources>
