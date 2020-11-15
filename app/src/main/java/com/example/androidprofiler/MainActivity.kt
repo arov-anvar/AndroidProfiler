@@ -14,12 +14,4 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
     }
-
-    external fun stringFromJNI(): String
-
-    companion object {
-        init {
-            System.loadLibrary("native-lib")
-        }
-    }
 }

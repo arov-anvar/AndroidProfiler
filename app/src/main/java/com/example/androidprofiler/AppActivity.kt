@@ -21,4 +21,10 @@ class AppActivity : AppCompatActivity() {
         val tabs: TabLayout = findViewById(R.id.tabs)
         tabs.setupWithViewPager(viewPager)
     }
+
+    companion object {
+        init {
+            System.loadLibrary("cpuinfo-libs")
+        }
+    }
 }

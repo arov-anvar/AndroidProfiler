@@ -1,4 +1,4 @@
-package com.example.androidprofiler.cpu.model
+package com.example.androidprofiler.cpu.model.interactor
 
 import com.example.androidprofiler.cpu.view.CpuAdapterItem
 

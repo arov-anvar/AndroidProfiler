@@ -12,7 +12,7 @@ import com.example.androidprofiler.R
 import com.example.androidprofiler.cpu.CpuAssembler
 import com.example.androidprofiler.cpu.presenter.CpuPresenter
 
-class CpuFragment : Fragment(), CpuView {
+class CpuFragment : Fragment(R.layout.fragment_cpu), CpuView {
 
     private val list = mutableListOf<CpuAdapterItem>()
     private val adapter = CpuAdapter(list)
@@ -32,15 +32,6 @@ class CpuFragment : Fragment(), CpuView {
         }, 200)
 
         CpuAssembler().assemble(this)
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        val root = inflater.inflate(R.layout.fragment_cpu, container, false)
-        return root
     }
 
     override fun showNewData(data: List<CpuAdapterItem>) {
