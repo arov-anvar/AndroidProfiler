@@ -16,6 +16,13 @@ class CpuInteractorImpl(private val cpuProvider: CpuProvider): CpuInteractor {
             for (core in 0 until getNumberOfCores()) {
                 list.add(CpuAdapterItem("Ядро $core:", "${getCurrentFrequenciesCpu(core)} мгц"))
             }
+
+            list.add(CpuAdapterItem("Abi", getAbi()))
+
+            list.add(CpuAdapterItem("L1 chaches", getL1Caсhes()))
+            list.add(CpuAdapterItem("L2 chaches", getL2Caсhes()))
+            list.add(CpuAdapterItem("L3 chaches", getL3Caсhes()))
+            list.add(CpuAdapterItem("L4 chaches", getL4Caсhes()))
         }
         return list
     }

@@ -25,4 +25,21 @@ class CpuProviderImpl(private val cpuNativeProvider: CpuNativeProvider) : CpuPro
     override fun getCpuName(): String {
         return cpuNativeProvider.getCpuName()
     }
+
+    override fun getL1Caсhes(): String = getCachesStrFromIntArray(cpuNativeProvider.getL1Caches())
+
+    override fun getL2Caсhes(): String = getCachesStrFromIntArray(cpuNativeProvider.getL2Caches())
+
+    override fun getL3Caсhes(): String = getCachesStrFromIntArray(cpuNativeProvider.getL3Caches())
+
+    override fun getL4Caсhes(): String = getCachesStrFromIntArray(cpuNativeProvider.getL4Caches())
+
+    private fun getCachesStrFromIntArray(intArray: IntArray?): String {
+        var str = ""
+        intArray?.forEach {
+            str += "$it кб \n"
+        }
+        return str.substring(0, str.length - 2)
+    }
+
 }
