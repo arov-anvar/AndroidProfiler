@@ -7,7 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.androidprofiler.R
 
-class CpuAdapter(private val mData: List<CpuAdapterItem>) : RecyclerView.Adapter<CpuAdapter.ViewHolder>() {
+class DataAdapter(private val mData: List<AdapterItem>) : RecyclerView.Adapter<DataAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 

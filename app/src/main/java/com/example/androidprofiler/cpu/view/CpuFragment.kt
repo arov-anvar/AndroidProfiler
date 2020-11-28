@@ -3,9 +3,7 @@ package com.example.androidprofiler.cpu.view
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.example.androidprofiler.R
@@ -14,8 +12,8 @@ import com.example.androidprofiler.cpu.presenter.CpuPresenter
 
 class CpuFragment : Fragment(R.layout.fragment_cpu), CpuView {
 
-    private val list = mutableListOf<CpuAdapterItem>()
-    private val adapter = CpuAdapter(list)
+    private val list = mutableListOf<AdapterItem>()
+    private val adapter = DataAdapter(list)
     private lateinit var presenter: CpuPresenter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -34,7 +32,7 @@ class CpuFragment : Fragment(R.layout.fragment_cpu), CpuView {
         CpuAssembler().assemble(this)
     }
 
-    override fun showNewData(data: List<CpuAdapterItem>) {
+    override fun showNewData(data: List<AdapterItem>) {
         list.clear()
         list.addAll(data)
         adapter.notifyDataSetChanged()

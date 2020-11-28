@@ -39,7 +39,7 @@ class CpuProviderImpl(private val cpuNativeProvider: CpuNativeProvider) : CpuPro
         intArray?.forEach {
             str += "$it кб \n"
         }
-        return str.substring(0, str.length - 2)
+        return if (str.isNotEmpty()) str.substring(0, str.length - 2) else str
     }
 
 }
