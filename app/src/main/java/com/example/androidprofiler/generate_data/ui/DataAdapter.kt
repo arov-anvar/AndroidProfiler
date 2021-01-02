@@ -1,4 +1,4 @@
-package com.example.androidprofiler.cpu.view
+package com.example.androidprofiler.generate_data.ui
 
 import android.view.LayoutInflater
 import android.view.View
@@ -12,7 +12,7 @@ class DataAdapter(private val mData: List<AdapterItem>) : RecyclerView.Adapter<D
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_cpu, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_data, parent, false)
         return ViewHolder(view)
     }
 

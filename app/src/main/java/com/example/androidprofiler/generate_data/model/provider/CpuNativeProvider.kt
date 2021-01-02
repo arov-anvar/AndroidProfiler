@@ -1,4 +1,4 @@
-package com.example.androidprofiler.cpu.model.provider
+package com.example.androidprofiler.generate_data.model.provider
 
 class CpuNativeProvider {
 

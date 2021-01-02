@@ -1,4 +1,4 @@
-package com.example.androidprofiler.cpu.model.provider
+package com.example.androidprofiler.generate_data.model.provider
 
 import android.os.Build
 import android.util.Log
