@@ -5,7 +5,7 @@ import android.view.View
 import android.widget.Button
 import androidx.fragment.app.Fragment
 import com.example.androidprofiler.generate_data.ui.GenerateDataFragment
-import com.example.androidprofiler.saved_data.SaveDataFragment
+import com.example.androidprofiler.saved_data.SavedDataFragment
 
 class MainFragment : Fragment(R.layout.fragment_main) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -16,7 +16,7 @@ class MainFragment : Fragment(R.layout.fragment_main) {
         }
 
         view.findViewById<Button>(R.id.savedDataBtn).setOnClickListener {
-            changeFragment(R.id.nav_host, SaveDataFragment())
+            changeFragment(R.id.nav_host, SavedDataFragment())
         }
     }
 

@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.View
+import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.example.androidprofiler.R
@@ -20,6 +21,10 @@ class GenerateDataFragment : Fragment(R.layout.generate_data_fragment) {
         super.onViewCreated(view, savedInstanceState)
 
         view.findViewById<RecyclerView>(R.id.dataRV).adapter = adapter
+
+        view.findViewById<Button>(R.id.saveBtn).setOnClickListener {
+            viewModel.saveBtnClicked()
+        }
 
         viewModel.rvData.observe(this@GenerateDataFragment, {
             list.clear()

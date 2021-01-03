@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "result_entity")
 class LocalEntity (
 
-    @PrimaryKey(autoGenerate = true) val id: Int = 1,
+    @PrimaryKey val time: String,
     val cpuName: String,
     val numberOfCores: String,
     val currentFrequenciesCpu1: String,

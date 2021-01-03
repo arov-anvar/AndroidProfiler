@@ -2,11 +2,9 @@ package com.example.androidprofiler.generate_data.ui
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.androidprofiler.generate_data.model.repository.GenerateDataRepository
-import com.example.androidprofiler.generate_data.ui.AdapterItem
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.async
-import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.launch
 
 class GenerateDataViewModel(private val repository: GenerateDataRepository) : ViewModel() {
 
@@ -18,7 +16,7 @@ class GenerateDataViewModel(private val repository: GenerateDataRepository) : Vi
     }
 
     fun saveBtnClicked() {
-        runBlocking {
+        viewModelScope.launch {
             repository.saveData(rvData.value ?: listOf())
         }
     }

@@ -2,11 +2,13 @@ package com.example.androidprofiler.generate_data.model.repository
 
 import android.app.ActivityManager
 import android.os.Build
+import android.util.Log
 import androidx.annotation.WorkerThread
 import com.example.androidprofiler.generate_data.model.local_data_source.LocalDao
 import com.example.androidprofiler.generate_data.model.local_data_source.LocalEntity
 import com.example.androidprofiler.generate_data.model.provider.CpuProvider
 import com.example.androidprofiler.generate_data.ui.AdapterItem
+import java.util.*
 
 class GenerateDataRepository(
     private val cpuProvider: CpuProvider,
@@ -72,11 +74,10 @@ class GenerateDataRepository(
         return vm
     }
 
-    @Suppress("RedundantSuspendModifier")
-    @WorkerThread
     suspend fun saveData(listData: List<AdapterItem>) {
-        val a = localDao.getAllData()
+        val time = Calendar.getInstance().time.toString()
         val localEntity = LocalEntity(
+            time = time,
             cpuName = listData[0].data,
             numberOfCores = listData[1].data,
             currentFrequenciesCpu1 = listData[2].data,

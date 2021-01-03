@@ -1,35 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <data>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
 
-        <variable
-            name="viewModel"
-            type="com.example.androidprofiler.generate_data.ui.GenerateDataViewModel" />
-    </data>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/dataRV"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:background="@color/white">
+        android:paddingBottom="200dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/dataRV"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:paddingBottom="200dp"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+    <Button
+        android:id="@+id/saveBtn"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="Сохранить"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <Button
-            android:id="@+id/saveBtn"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:text="Сохранить"
-            android:onClick="@{() -> viewModel.saveBtnClicked()}"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</layout>
+</androidx.constraintlayout.widget.ConstraintLayout>
