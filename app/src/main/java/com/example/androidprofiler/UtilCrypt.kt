@@ -5,7 +5,7 @@ import javax.crypto.Cipher
 import javax.crypto.spec.IvParameterSpec
 import javax.crypto.spec.SecretKeySpec
 
-fun String.encrypt(password: String): String {
+fun String.encrypt(password: String = AndroidProfilerApp.key): String {
     val secretKeySpec = SecretKeySpec(password.toByteArray(), "AES")
     val iv = ByteArray(16)
     val charArray = password.toCharArray()
@@ -21,7 +21,7 @@ fun String.encrypt(password: String): String {
     return Base64.encodeToString(encryptedValue, Base64.DEFAULT)
 }
 
-fun String.decrypt(password: String): String {
+fun String.decrypt(password: String = AndroidProfilerApp.key): String {
     val secretKeySpec = SecretKeySpec(password.toByteArray(), "AES")
     val iv = ByteArray(16)
     val charArray = password.toCharArray()

@@ -11,7 +11,7 @@ class GenerateDataViewModel(private val repository: GenerateDataRepository) : Vi
     val rvData: MutableLiveData<List<AdapterItem>> = MutableLiveData()
 
     fun updateData() {
-        val newData = repository.getCpuData()
+        val newData = repository.getData()
         rvData.value = newData
     }
 

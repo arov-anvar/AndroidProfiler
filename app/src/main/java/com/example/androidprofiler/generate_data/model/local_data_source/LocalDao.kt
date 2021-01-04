@@ -15,7 +15,6 @@ interface LocalDao {
     @Query("SELECT * FROM result_entity WHERE :selectedTime = result_entity.time")
     fun getSelectedTimeData(selectedTime: String): LiveData<LocalEntity>
 
-
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(localEntity: LocalEntity)
 }

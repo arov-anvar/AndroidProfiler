@@ -4,6 +4,7 @@ import android.app.ActivityManager
 import android.os.Build
 import android.util.Log
 import androidx.annotation.WorkerThread
+import com.example.androidprofiler.encrypt
 import com.example.androidprofiler.generate_data.model.local_data_source.LocalDao
 import com.example.androidprofiler.generate_data.model.local_data_source.LocalEntity
 import com.example.androidprofiler.generate_data.model.provider.CpuProvider
@@ -16,7 +17,7 @@ class GenerateDataRepository(
     private val localDao: LocalDao
 ) {
 
-    fun getCpuData(): List<AdapterItem> {
+    fun getData(): List<AdapterItem> {
         val list = mutableListOf<AdapterItem>()
 
         cpuProvider.apply {
@@ -77,33 +78,33 @@ class GenerateDataRepository(
     suspend fun saveData(listData: List<AdapterItem>) {
         val time = Calendar.getInstance().time.toString()
         val localEntity = LocalEntity(
-            time = time,
-            cpuName = listData[0].data,
-            numberOfCores = listData[1].data,
-            currentFrequenciesCpu1 = listData[2].data,
-            currentFrequenciesCpu2 = listData[3].data,
-            currentFrequenciesCpu3 = listData[4].data,
-            currentFrequenciesCpu4 = listData[5].data,
-            currentFrequenciesCpu5 = listData[6].data,
-            currentFrequenciesCpu6 = listData[7].data,
-            currentFrequenciesCpu7 = listData[8].data,
-            currentFrequenciesCpu8 = listData[9].data,
-            l1Chaces = listData[10].data,
-            l2Chaces = listData[11].data,
-            l3Chaces = listData[12].data,
-            l4Chaces = listData[13].data,
-            buildVersion = listData[14].data,
-            sdk = listData[15].data,
-            codeName = listData[16].data,
-            brand = listData[17].data,
-            model = listData[18].data,
-            manufacturer = listData[19].data,
-            vm = listData[20].data,
-            kernel = listData[21].data,
-            nativeHeapSize = listData[22].data,
-            nativeHeapFreeSize = listData[23].data,
-            usedMemInBytes = listData[24].data,
-            usedMemInPercentage = listData[25].data
+            time = time.encrypt(),
+            cpuName = listData[0].data.encrypt(),
+            numberOfCores = listData[1].data.encrypt(),
+            currentFrequenciesCpu1 = listData[2].data.encrypt(),
+            currentFrequenciesCpu2 = listData[3].data.encrypt(),
+            currentFrequenciesCpu3 = listData[4].data.encrypt(),
+            currentFrequenciesCpu4 = listData[5].data.encrypt(),
+            currentFrequenciesCpu5 = listData[6].data.encrypt(),
+            currentFrequenciesCpu6 = listData[7].data.encrypt(),
+            currentFrequenciesCpu7 = listData[8].data.encrypt(),
+            currentFrequenciesCpu8 = listData[9].data.encrypt(),
+            l1Chaces = listData[10].data.encrypt(),
+            l2Chaces = listData[11].data.encrypt(),
+            l3Chaces = listData[12].data.encrypt(),
+            l4Chaces = listData[13].data.encrypt(),
+            buildVersion = listData[14].data.encrypt(),
+            sdk = listData[15].data.encrypt(),
+            codeName = listData[16].data.encrypt(),
+            brand = listData[17].data.encrypt(),
+            model = listData[18].data.encrypt(),
+            manufacturer = listData[19].data.encrypt(),
+            vm = listData[20].data.encrypt(),
+            kernel = listData[21].data.encrypt(),
+            nativeHeapSize = listData[22].data.encrypt(),
+            nativeHeapFreeSize = listData[23].data.encrypt(),
+            usedMemInBytes = listData[24].data.encrypt(),
+            usedMemInPercentage = listData[25].data.encrypt()
         )
         localDao.insert(localEntity)
     }
